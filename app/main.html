@@ -1,0 +1,77 @@
+<!doctype html>
+<html data-ng-app="app" ng-csp="">
+    <head>
+        <meta charset="utf-8"/>
+
+
+        <!-- build:css styles/main.css -->
+
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css" />
+        <!-- endbower -->
+
+        <link href="styles/main.css" rel="stylesheet">
+        <!-- endbuild -->
+
+        <style id="sender">
+            p.senderlabel {
+                color: #007F00;
+            }
+            p.sender0 {
+                color: #7F0000;
+            }
+            p.sender1 {
+                color: #00007F;
+            }
+            p.sender2 {
+                color: #007f7F;
+            }
+            p.sender3 {
+                color: #7f1f7F;
+            }
+        </style>
+
+        <!-- build:js scripts/main.js -->
+
+        <!-- bower:js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/jquery-stylesheet/jquery.stylesheet.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/d3/d3.js"></script>
+        <!-- <script src="bower_components/uuid-js/lib/uuid.js"></script> -->
+        <!-- endbower -->
+
+        <script src="scripts/main.js"></script>
+        <script src="scripts/directives/all.js"></script>
+        <script src="scripts/directives/port.js"></script>
+        <script src="scripts/directives/logger.js"></script>
+        <script src="scripts/services/all.js"></script>
+        <script src="scripts/services/serial.js"></script>
+        <script src="scripts/services/logger.js"></script>
+        <!-- endbuild -->
+
+        <!-- // <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script> -->
+
+    </head>
+    <body data-ng-controller="AppCtrl">
+        <div id="tools">
+            <!-- [{{ports}}] -->
+            <ul class="list-unstyled">
+                <li data-ng-repeat="p in ports">
+                    <port sender="$index" ng-model="p" on-connect="onConnect(p)" on-disconnect="onDisconnect(p)"></port>
+                    <button class="btn btn-danger" ng-click="onRemovePort($index)" title="Удалить">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </li>
+            </ul>
+            <div>
+                <button class="btn btn-default" data-ng-click="onAddPort()"><span class="glyphicon glyphicon-plus-sign"></span> Добавить порт</button>
+                <button class="btn btn-primary" ng-click="onTest()"><span class="glyphicon glyphicon-minus"></span> Поставить метку</button>
+            </div>
+        </div>
+        <logger logger="logger"></logger>
+
+    </body>
+</html>

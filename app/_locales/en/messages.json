@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "tty logger chrome",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "UART debug logger",
+    "description": "The description of the application"
+  }
+}

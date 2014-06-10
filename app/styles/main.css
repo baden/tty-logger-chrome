@@ -1,0 +1,129 @@
+html, body {
+    overflow-y: hidden;
+    height:100%;
+}
+
+#tools {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    /*bottom: 20px;
+    left: 20px;
+    right: 20px;
+    height: 300px;
+    background-color: white;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    overflow: auto;*/
+    /*border: 1px solid green;*/
+}
+
+.port {
+    display: inline-block;
+}
+
+.port select {
+    width: 130px;
+    padding: 6px;
+}
+
+.port input[type=color] {
+    height: 34px;
+    vertical-align: bottom;
+}
+
+
+div.logcontainer {
+    position: absolute;
+    top: 200px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    /*border: 1px solid red;*/
+    /*background-color: #222;*/
+}
+
+    div.logcontainer .logtools {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 48px;
+        padding: 6px;
+        /*border: 1px solid olive;*/
+    }
+
+pre.log {
+  position: absolute;
+  /*width: 100%;*/
+  /*height: 100%;*/
+  top: 48px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  clear: left;
+  margin: 0;
+  /*min-height: 12px;*/
+  /*margin-top: 25px;*/
+  /*margin-top: 1em;*/
+  /*padding: 15px 0;*/
+  /*color: #f1f1f1;*/
+  font-family: monospace;
+  font-size: 14px;
+  /*line-height: 19px;*/
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  /*background-color: #222;*/
+  /*border: 1px solid #ddd;*/
+  /*overflow-x: scroll;*/
+  counter-reset: line-numbering;
+  overflow: auto;
+}
+
+    pre.log p {
+        padding: 0 15px 0px 35px;
+        margin: 0;
+        min-height: 16px;
+        font-weight: bold;
+    }
+
+        pre.log p a {
+            display: inline-block;
+            text-align: right;
+            min-width: 40px;
+            margin-left: -33px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: normal;
+        }
+
+        pre.log p a::before {
+            content: counter(line-numbering, decimal);
+            counter-increment: line-numbering;
+            padding-right: 1em;
+        }
+
+        pre.log p span.datetime {
+            display: inline-block;
+            width: 70px;
+            font-weight: normal;
+            /*background-color: green;*/
+        }
+
+        pre.log p span.delta {
+            display: inline-block;
+            width: 70px;
+            text-align: right;
+            padding-right: 6px;
+            font-weight: normal;
+            /*color: #f1f1cc;*/
+            /*background-color: magenta;*/
+        }
+        pre.log p span.delta:before {
+            content: '+';
+            font-weight: normal;
+        }
