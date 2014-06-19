@@ -3,12 +3,18 @@ html, body {
     height:100%;
 }
 
+body {
+    background-color: #cfcfcf;
+    border: 1px solid black;
+}
+
 #tools {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 2px;
+    left: 2px;
     width: 100%;
     padding: 10px;
+
     /*bottom: 20px;
     left: 20px;
     right: 20px;
@@ -18,6 +24,45 @@ html, body {
     overflow: auto;*/
     /*border: 1px solid green;*/
 }
+
+#header {
+    margin: -11px -7px 9px -11px;
+    padding: 4px;
+    background-color: #047479;
+    color: #FFF;
+    -webkit-app-region: drag;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+    #header .controls {
+        float: right;
+        -webkit-app-region: no-drag;
+        margin-top: -3px;
+    }
+
+        #header span.controls span {
+            transition: color 0.5s ease;
+            padding: 6px;
+            cursor: pointer;
+        }
+
+            #header span.controls span:hover {
+                /*box-shadow: 0px 0px 3px rgba(0,0,0,0.5);*/
+            }
+
+            #header span.controls span.exit:hover {
+                color: #ff8080;
+            }
+
+            #header span.controls span.minimize:hover {
+                color: #40ff40;
+            }
+
+            #header span.controls span.maximize:hover {
+                color: #00ffd0;
+            }
+
 
 .port {
     display: inline-block;
@@ -37,9 +82,9 @@ html, body {
 div.logcontainer {
     position: absolute;
     top: 200px;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    bottom: 6px;
+    left: 6px;
+    right: 6px;
     overflow: hidden;
     margin: 0;
     padding: 0;
@@ -82,6 +127,7 @@ pre.log {
   /*overflow-x: scroll;*/
   counter-reset: line-numbering;
   overflow: auto;
+  border-radius: 6px;
 }
 
     pre.log p {
@@ -127,3 +173,13 @@ pre.log {
             content: '+';
             font-weight: normal;
         }
+
+#closing {
+    position: relative;
+    z-index: 1000;
+    background-color: gray;
+    color: white;
+    padding: 50px;
+    font-size: 4em;
+    margin: 0 auto;
+}

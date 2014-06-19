@@ -12,9 +12,9 @@ angular.module('directives.logger', ['services.logger'])
             template:
                 '<div class="logcontainer">'+
                     '<div class="logtools">'+
-                        '<button class="btn btn-default" ng-click="onSave()">Сохранить в файл</button> '+
-                        '<button class="btn btn-warning" ng-click="onClearLog()">Очистить</button> '+
-                        '<button class="btn btn-default" >Опубликовать</button> '+
+                        '<button class="btn btn-default" ng-click="onSave()"><span class="glyphicon glyphicon-save"></span> Сохранить в файл</button> '+
+                        '<button class="btn btn-warning" ng-click="onClearLog()"><span class="glyphicon glyphicon-remove"></span> Очистить</button> '+
+                        '<button class="btn btn-default" style="display: none">Опубликовать</button> '+
                         '<label><input type="checkbox" ng-model="scroll">Автопрокрутка</label>'+
                     '</div>'+
                     '<pre id="log" class="log"></pre>'+

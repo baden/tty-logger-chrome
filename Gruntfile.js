@@ -29,10 +29,6 @@ module.exports = function (grunt) {
 
         // Watches files for changes and runs tasks based on the changed files
         watch: {
-            bower: {
-                files: ['bower.json'],
-                tasks: ['bowerInstall']
-            },
             js: {
                 files: ['<%= config.app %>/scripts/{,*/}*.js'],
                 tasks: ['jshint'],
@@ -127,12 +123,6 @@ module.exports = function (grunt) {
             }
         },
 
-        bower: {
-            install: {
-                //just run 'grunt bower:install' and you'll see files from your Bower packages in lib directory
-            }
-        },
-
         // Reads HTML for usemin blocks to enable smart builds that automatically
         // concat, minify and revision files. Creates configurations in memory so
         // additional tasks can operate on them
@@ -141,7 +131,7 @@ module.exports = function (grunt) {
                 dest: '<%= config.dist %>'
             },
             html: [
-                '<%= config.app %>/popup.html',
+                '<%= config.app %>/main.html',
                 '<%= config.app %>/options.html'
             ]
         },
@@ -240,6 +230,12 @@ module.exports = function (grunt) {
                         'styles/fonts/{,*/}*.*',
                         '_locales/{,*/}*.json',
                     ]
+                }, {
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= config.app %>/bower_components/bootstrap/dist',
+                    dest: '<%= config.dist %>',
+                    src: ['fonts/*.*']
                 }]
             }
         },
@@ -277,7 +273,7 @@ module.exports = function (grunt) {
         compress: {
             dist: {
                 options: {
-                    archive: 'package/uart chrome logger<%= config.manifest.version %>.zip'
+                    archive: 'package/tty logger chrome <%= config.manifest.version %>.zip'
                 },
                 files: [{
                     expand: true,

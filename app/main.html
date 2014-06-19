@@ -3,13 +3,10 @@
     <head>
         <meta charset="utf-8"/>
 
+        <!-- build:css styles/app.css -->
 
-        <!-- build:css styles/main.css -->
-
-        <!-- bower:css -->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css" />
-        <!-- endbower -->
 
         <link href="styles/main.css" rel="stylesheet">
         <!-- endbuild -->
@@ -32,16 +29,13 @@
             }
         </style>
 
-        <!-- build:js scripts/main.js -->
+        <!-- build:js scripts/app.js -->
 
-        <!-- bower:js -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/jquery-stylesheet/jquery.stylesheet.js"></script>
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
         <script src="bower_components/d3/d3.js"></script>
-        <!-- <script src="bower_components/uuid-js/lib/uuid.js"></script> -->
-        <!-- endbower -->
 
         <script src="scripts/main.js"></script>
         <script src="scripts/directives/all.js"></script>
@@ -57,6 +51,15 @@
     </head>
     <body data-ng-controller="AppCtrl">
         <div id="tools">
+            <div id="header">
+                <span class="glyphicon glyphicon-list"></span>
+                <span class="title">TTY Logger Chrome</span>
+                <span class="controls">
+                    <span class="minimize glyphicon glyphicon-minus" ng-click="onMinimize()"></span>
+                    <span class="maximize glyphicon glyphicon-fullscreen" ng-click="onMaximize()"></span>
+                    <span class="exit glyphicon glyphicon-remove" ng-click="onExit()"></span>
+                </span>
+            </div>
             <!-- [{{ports}}] -->
             <ul class="list-unstyled">
                 <li data-ng-repeat="p in ports">
@@ -72,6 +75,6 @@
             </div>
         </div>
         <logger logger="logger"></logger>
-
+        <div id="closing" ng-if="closing">Выходим...</div>
     </body>
 </html>

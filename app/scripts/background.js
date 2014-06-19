@@ -6,12 +6,20 @@ chrome.runtime.onInstalled.addListener(function (details) {
 
 chrome.app.runtime.onLaunched.addListener(function() {
     chrome.app.window.create('main.html', {
-        id: 'TTY_Logger_Chrome_WindowID',
+        // id: 'TTY_Logger_Chrome_WindowID',
+        // frame: 'none',
         bounds: {
             width: 1024,
             height: 600
         },
-        minWidth: 500,
+        frame: 'none',
+        minWidth: 550,
         minHeight: 300
     });
+});
+
+chrome.app.window.onClosed.addListener(function() {
+    console.log('EXIT===========================');
+    //  chrome.serial.close(connectionId, onClose);
+    //  chrome.runtime.reload();
 });

@@ -1,7 +1,7 @@
-magnum8-chrome-app
+tty-logger-chrome
 ==================
 
-Приложение для Chrome для программирования Magnum8 через USB-шнур.
+Приложение для Chrome для записи логов посредством одного или нескольких UART-шнуров.
 
 
 ## Установка зависимостей
@@ -32,7 +32,6 @@ Node.js поставляется с пакет-менеджером [npm](http:/
 ```bash
     npm install
     bower install
-    grunt bowerInstall
 ```
 
 ### Разработка
