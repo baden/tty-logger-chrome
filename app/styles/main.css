@@ -4,8 +4,12 @@ html, body {
 }
 
 body {
-    background-color: #cfcfcf;
+    /*background-color: #cfcfcf;*/
     border: 1px solid black;
+
+
+    background: url(../images/desktop-backgrounds-8686-9023-hd-wallpapers.jpg) repeat #fc0;
+    background-position: center;
 }
 
 #tools {
@@ -25,14 +29,31 @@ body {
     /*border: 1px solid green;*/
 }
 
+
+
+
 #header {
     margin: -11px -7px 9px -11px;
     padding: 4px;
-    background-color: #047479;
+    /*background-color: #047479;*/
     color: #FFF;
     -webkit-app-region: drag;
     font-size: 1.4em;
     font-weight: bold;
+
+    background: rgb(165,0,2); /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  rgba(165,0,2,1) 1%, rgba(0,119,135,1) 40%, rgba(34,104,0,1) 59%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(1%,rgba(165,0,2,1)), color-stop(40%,rgba(0,119,135,1)), color-stop(59%,rgba(34,104,0,1)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg,  rgba(165,0,2,1) 1%,rgba(0,119,135,1) 40%,rgba(34,104,0,1) 59%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg,  rgba(165,0,2,1) 1%,rgba(0,119,135,1) 40%,rgba(34,104,0,1) 59%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg,  rgba(165,0,2,1) 1%,rgba(0,119,135,1) 40%,rgba(34,104,0,1) 59%,rgba(0,0,0,1) 100%); /* IE10+ */
+    background: linear-gradient(135deg,  rgba(165,0,2,1) 1%,rgba(0,119,135,1) 40%,rgba(34,104,0,1) 59%,rgba(0,0,0,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a50002', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    opacity: 0.7;
+    box-shadow: 0px 0px 8px #000;
+
 }
 
     #header .controls {
@@ -82,6 +103,7 @@ body {
 div.logcontainer {
     position: absolute;
     top: 200px;
+    transition: top 0.3s ease;
     bottom: 6px;
     left: 6px;
     right: 6px;
@@ -90,9 +112,10 @@ div.logcontainer {
     padding: 0;
     /*border: 1px solid red;*/
     /*background-color: #222;*/
+    opacity: 0.9;
 }
 
-    div.logcontainer .logtools {
+    .logcontainer .logtools {
         position: absolute;
         top: 0;
         left: 0;
@@ -101,6 +124,32 @@ div.logcontainer {
         padding: 6px;
         /*border: 1px solid olive;*/
     }
+
+        .logcontainer .logtools .shadow {
+            color: white;
+            text-shadow: 1px 1px 8px black;
+        }
+
+        .logcontainer .logtools .toolrow {
+
+        }
+
+            .logcontainer .logtools .toolrow .toolrowleft {
+                float: left;
+                margin-right: 10px;
+            }
+
+
+        .logcontainer .logtools ul.dropdown-menu-form {
+            padding: 5px 10px 5px 10px;
+            /*max-height: 300px;*/
+            /*overflow-y: scroll;*/
+        }
+
+            .logcontainer .logtools ul.dropdown-menu-form label {
+                font-weight: normal;
+            }
+
 
 pre.log {
   position: absolute;
@@ -172,6 +221,10 @@ pre.log {
         pre.log p span.delta:before {
             content: '+';
             font-weight: normal;
+        }
+
+        .toolrowleft {
+            float: left;
         }
 
 #closing {

@@ -9,21 +9,22 @@ angular.module('directives.logger', ['services.logger'])
         return {
             restrict: 'E',
             replace: true,
-            template:
-                '<div class="logcontainer">'+
-                    '<div class="logtools">'+
-                        '<button class="btn btn-default" ng-click="onSave()"><span class="glyphicon glyphicon-save"></span> Сохранить в файл</button> '+
-                        '<button class="btn btn-warning" ng-click="onClearLog()"><span class="glyphicon glyphicon-remove"></span> Очистить</button> '+
-                        '<button class="btn btn-default" style="display: none">Опубликовать</button> '+
-                        '<label><input type="checkbox" ng-model="scroll">Автопрокрутка</label>'+
-                    '</div>'+
-                    '<pre id="log" class="log"></pre>'+
-                '</div>',
+            templateUrl: 'templates/logger.tpl.html',
             scope: {
                 logger: '='
             },
             link: function(scope, element){
                 var container = element.find('pre.log');
+
+                $(element).find('.dropdown-toggle').dropdown();
+
+                $(element).find('.dropdown-menu').on('click', function(e) {
+                    if($(this).hasClass('dropdown-menu-form')) {
+                        e.stopPropagation();
+                    }
+                });
+
+                // console.log('a=', a);
 
                 scope.scroll = true;
 
@@ -74,6 +75,17 @@ angular.module('directives.logger', ['services.logger'])
                         }, errorHandler);
                     });
 	            };
+
+                scope.search = {
+                    type: 'string',
+                    highlight: false,
+                    save: false
+                };
+
+                scope.onSearch = function(){
+                    console.log('TBD search=', scope.search);
+                };
+
             }
         };
     }

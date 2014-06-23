@@ -1,0 +1,42 @@
+<div class="logcontainer">
+    <div class="logtools">
+        <div class="toolrow">
+            <div class="toolrowleft">
+                <button class="btn btn-default" ng-click="onSave()"><span class="glyphicon glyphicon-save"></span> Сохранить в файл</button>
+                <button class="btn btn-warning" ng-click="onClearLog()"><span class="glyphicon glyphicon-remove"></span> Очистить</button>
+                <button class="btn btn-default" style="display: none">Опубликовать</button>
+                <label><input type="checkbox" ng-model="scroll" class="shadow"> Автопрокрутка</label>
+            </div>
+            <div class="input-group" title="Функция в разработке.">
+                <input type="text" class="form-control" placeholder="Поиск" ng-model="search.text">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="onSearch()">Искать</button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                        <span class="caret"></span>
+                        <span class="sr-only">Опции</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-form pull-right" role="menu">
+                        <li>
+                            <label><input type="radio" name="optionsSearchType" value="string" checked ng-model="search.type"> Строка</label>
+                        </li>
+                        <li>
+                            <label><input type="radio" name="optionsSearchType" value="regular" ng-model="search.type"> Регулярное выражение</label>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <label class="checkbox-inline">
+                              <input type="checkbox" id="optionsSearchHilight" value="true" ng-model="search.highlight"> Только подсвечивать
+                            </label>
+                        </li>
+                        <li>
+                            <label class="checkbox-inline">
+                              <input type="checkbox" id="optionsSearchSave" value="true" ng-model="search.save"> Сохранять отфильтрованное
+                            </label>
+                        </li>
+                    </ul>
+                </span>
+            </div>
+        </div>
+    </div>
+    <pre id="log" class="log"></pre>
+</div>

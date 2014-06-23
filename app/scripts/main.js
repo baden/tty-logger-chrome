@@ -18,7 +18,7 @@ angular.module('app').controller('AppCtrl', ['$scope', '$timeout', 'Serial', 'Lo
             $timeout(function(){
                 var toolheight = $('#tools')[0].clientHeight - 4;
                 $('.logcontainer').css('top', '' + toolheight + 'px');
-            });
+            }, 100);
         };
         resizeLogger();
 
