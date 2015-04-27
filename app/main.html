@@ -50,31 +50,37 @@
 
     </head>
     <body data-ng-controller="AppCtrl">
-        <div id="tools">
-            <div id="header">
-                <span class="glyphicon glyphicon-list"></span>
-                <span class="title">TTY Logger Chrome</span>
-                <span class="controls">
-                    <span class="minimize glyphicon glyphicon-minus" ng-click="onMinimize()"></span>
-                    <span class="maximize glyphicon glyphicon-fullscreen" ng-click="onMaximize()"></span>
-                    <span class="exit glyphicon glyphicon-remove" ng-click="onExit()"></span>
-                </span>
-            </div>
-            <!-- [{{ports}}] -->
-            <ul class="list-unstyled">
-                <li data-ng-repeat="p in ports">
-                    <port sender="$index" ng-model="p" on-connect="onConnect(p)" on-disconnect="onDisconnect(p)"></port>
-                    <button class="btn btn-danger" ng-click="onRemovePort($index)" title="Удалить">
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                </li>
-            </ul>
-            <div>
-                <button class="btn btn-default" data-ng-click="onAddPort()"><span class="glyphicon glyphicon-plus-sign"></span> Добавить порт</button>
-                <button class="btn btn-primary" ng-click="onTest()"><span class="glyphicon glyphicon-minus"></span> Поставить метку</button>
+        <div class="workspace">
+            <div class="vertical">
+                <div class="header">
+                    <span class="glyphicon glyphicon-list"></span>
+                    <span class="title">TTY Logger Chrome</span>
+                    <span class="controls">
+                        <span class="minimize glyphicon glyphicon-minus" ng-click="onMinimize()"></span>
+                        <span class="maximize glyphicon glyphicon-fullscreen" ng-click="onMaximize()"></span>
+                        <span class="exit glyphicon glyphicon-remove" ng-click="onExit()"></span>
+                    </span>
+                </div>
+                <div class="tools">
+                    <!-- [{{ports}}] -->
+                    <ul class="list-unstyled">
+                        <li data-ng-repeat="p in ports">
+                            <port sender="$index" ng-model="p" on-connect="onConnect(p)" on-disconnect="onDisconnect(p)" on-wegant="onWegant(p)"></port>
+                            <button class="btn btn-danger" ng-click="onRemovePort($index)" title="Удалить">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                        </li>
+                    </ul>
+                    <div>
+                        <button class="btn btn-default" data-ng-click="onAddPort()"><span class="glyphicon glyphicon-plus-sign"></span> Добавить порт</button>
+                        <button class="btn btn-primary" ng-click="onTest()"><span class="glyphicon glyphicon-minus"></span> Поставить метку</button>
+                    </div>
+                </div>
+                <div class="main">
+                    <logger logger="logger"></logger>
+                </div>
             </div>
         </div>
-        <logger logger="logger"></logger>
         <div id="closing" ng-if="closing">Выходим...</div>
     </body>
 </html>

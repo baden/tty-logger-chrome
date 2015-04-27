@@ -84,6 +84,7 @@ angular.module('directives.logger', ['services.logger'])
 
                 scope.onSearch = function(){
                     console.log('TBD search=', scope.search);
+                    scope.logger.filter(scope.search.text, scope.search);
                 };
 
             }

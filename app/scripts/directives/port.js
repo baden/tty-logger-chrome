@@ -17,7 +17,8 @@ angular.module('directives.port', ['services.serial', 'services.logger'])
                 sender: '=',
                 ngModel: '=',
                 onConnect: '&',
-                onDisconnect: '&'
+                onDisconnect: '&',
+                onWegant: '&'
             },
             controller: [
                 '$scope', 'Serial',

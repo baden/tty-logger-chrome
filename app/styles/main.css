@@ -6,34 +6,46 @@ html, body {
 body {
     /*background-color: #cfcfcf;*/
     border: 1px solid black;
+}
 
+/*div {*/
+    /*border: 1px solid green;*/
+/*}*/
+
+.workspace {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: #333333;
+    font-family: 'Lucida Grande', 'Segoe UI', sans-serif;
 
     background: url(../images/desktop-backgrounds-8686-9023-hd-wallpapers.jpg) repeat #fc0;
     background-position: center;
 }
 
-#tools {
-    position: absolute;
-    top: 2px;
-    left: 2px;
+.vertical {
+    display: -webkit-flex;
+    position: relative;
     width: 100%;
-    padding: 10px;
-
-    /*bottom: 20px;
-    left: 20px;
-    right: 20px;
-    height: 300px;
-    background-color: white;
-    box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-    overflow: auto;*/
-    /*border: 1px solid green;*/
+    height: 100%;
+    /*-webkit-flex: 1;*/
+    /*-webkit-flex-flow: column;*/
+    -webkit-flex-direction: column;
 }
 
+.tools {
+    position: relative;
+    padding: 6px;
+}
+
+    /*.tools ul {*/
+        /*margin: 0;*/
+    /*}*/
 
 
-
-#header {
-    margin: -11px -7px 9px -11px;
+.header {
+    /*margin: -11px -7px 9px -11px;*/
+    margin: 0;
     padding: 4px;
     /*background-color: #047479;*/
     color: #FFF;
@@ -56,34 +68,41 @@ body {
 
 }
 
-    #header .controls {
+    .header .controls {
         float: right;
         -webkit-app-region: no-drag;
         margin-top: -3px;
     }
 
-        #header span.controls span {
+        .header span.controls span {
             transition: color 0.5s ease;
             padding: 6px;
             cursor: pointer;
         }
 
-            #header span.controls span:hover {
+            .header span.controls span:hover {
                 /*box-shadow: 0px 0px 3px rgba(0,0,0,0.5);*/
             }
 
-            #header span.controls span.exit:hover {
+            .header span.controls span.exit:hover {
                 color: #ff8080;
             }
 
-            #header span.controls span.minimize:hover {
+            .header span.controls span.minimize:hover {
                 color: #40ff40;
             }
 
-            #header span.controls span.maximize:hover {
+            .header span.controls span.maximize:hover {
                 color: #00ffd0;
             }
 
+
+.main {
+    position: relative;
+    /*display: -webkit-flex;*/
+    -webkit-flex: auto;
+    /*-webkit-flex-flow: column;*/
+}
 
 .port {
     display: inline-block;
@@ -101,12 +120,12 @@ body {
 
 
 div.logcontainer {
-    position: absolute;
-    top: 200px;
+    /*position: absolute;*/
+    /*top: 200px;*/
     transition: top 0.3s ease;
-    bottom: 6px;
-    left: 6px;
-    right: 6px;
+    /*bottom: 6px;*/
+    /*left: 6px;*/
+    /*right: 6px;*/
     overflow: hidden;
     margin: 0;
     padding: 0;
@@ -160,7 +179,7 @@ pre.log {
   right: 0px;
   bottom: 0px;
   clear: left;
-  margin: 0;
+  margin: 4px;
   /*min-height: 12px;*/
   /*margin-top: 25px;*/
   /*margin-top: 1em;*/
@@ -228,7 +247,11 @@ pre.log {
         }
 
 #closing {
-    position: relative;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 300px;
     z-index: 1000;
     background-color: gray;
     color: white;

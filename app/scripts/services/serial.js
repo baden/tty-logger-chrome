@@ -12,8 +12,11 @@ angular.module('services.serial', [])
     /* Interprets an ArrayBuffer as UTF-8 encoded string data. */
     var ab2str = function(buf) {
         var bufView = new Uint8Array(buf);
+        // console.log(['bufView=', bufView]);
         var encodedString = String.fromCharCode.apply(null, bufView);
-        return decodeURIComponent(escape(encodedString));
+        // console.log(['encodedString=', encodedString]);
+        return encodedString;
+        // return decodeURIComponent(escape(encodedString));
     };
 
     /* Converts a string to UTF-8 encoding in a Uint8Array; returns the array buffer. */
@@ -53,7 +56,9 @@ angular.module('services.serial', [])
             return;
         }
 
+        // console.log(['receiveInfo.data=', receiveInfo.data]);
         this.lineBuffer += ab2str(receiveInfo.data);
+        // console.log(['this.lineBuffer=', this.lineBuffer]);
 
         var index;
         while ((index = this.lineBuffer.indexOf('\r')) >= 0) {
@@ -66,7 +71,8 @@ angular.module('services.serial', [])
             this.lineBuffer = this.lineBuffer.substr(index + 1);
 
             if(line.length > 0) {
-                this.onReadLine.dispatch(line);
+                // this.onReadLine.dispatch(line);
+                this.onReadLine.dispatch(decodeURIComponent(escape(line)));
             }
         }
     };

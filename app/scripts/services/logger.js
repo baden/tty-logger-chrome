@@ -9,6 +9,7 @@ angular.module('services.logger', [])
     var Logger = function() {
         this.lastdatetime = new Date();
         this.onAddLine = new chrome.Event();
+        this.data = [];
     };
 
     Logger.prototype.append = function(sender, text) {
@@ -16,6 +17,17 @@ angular.module('services.logger', [])
         var delta = (datetime - this.lastdatetime) / 1000;
         this.lastdatetime = datetime;
         this.onAddLine.dispatch(sender, datetime, delta, text);
+        this.data.push({
+            sender: sender,
+            datetime: datetime,
+            delta: delta,
+            text: text
+        });
+    };
+
+
+    Logger.prototype.filter = function(text, options) {
+        console.log('Logger.prototype.filter', text, options);
     };
 
     var service = {
