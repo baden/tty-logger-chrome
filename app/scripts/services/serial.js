@@ -71,8 +71,30 @@ angular.module('services.serial', [])
             this.lineBuffer = this.lineBuffer.substr(index + 1);
 
             if(line.length > 0) {
+		console.log(["log", line]);
                 // this.onReadLine.dispatch(line);
-                this.onReadLine.dispatch(decodeURIComponent(escape(line)));
+		var uri;
+		try{
+		    uri = decodeURIComponent(escape(line));
+		} catch (e) {
+		    var length = line.length;
+		    uri = "<" + length + " binary[";
+		    if(length <= 48) {
+			for(var i=0; i<length; i++) {
+			    uri += " " + ("00" + (line.charCodeAt(i)).toString(16).toUpperCase()).slice(-2)
+			}
+		    } else {
+			for(var i=0; i<22; i++) {
+			    uri += " " + (" 00" + (line.charCodeAt(i)).toString(16).toUpperCase()).slice(-2)
+			}
+			uri += " ...";
+			for(var i=length-22; i<length; i++) {
+			    uri += " " + (" 00" + (line.charCodeAt(i)).toString(16).toUpperCase()).slice(-2)
+			}
+		    }
+			uri += " ]>";
+		}
+                this.onReadLine.dispatch(uri);
             }
         }
     };

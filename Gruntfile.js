@@ -307,9 +307,9 @@ module.exports = function (grunt) {
         'cssmin',
         'concat',
         'uglify',
-        'copy',
-        'usemin',
-        'compress'
+        'copy'
+        , 'usemin'
+        , 'compress'
     ]);
 
     grunt.registerTask('default', [

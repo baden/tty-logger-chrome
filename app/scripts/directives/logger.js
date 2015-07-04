@@ -32,7 +32,10 @@ angular.module('directives.logger', ['services.logger'])
                 var deltaformat = d3.format('.3f');
 
                 scope.logger.onAddLine.addListener(function(sender, datetime, delta, text){
-                    var prepared = '<p class="sender' + sender + '"><a></a><span class="datetime">' + timeformat(datetime) + '</span><span class="delta">' + deltaformat(delta) + '</span><span class="content">' + text + '</span></p>';
+		    var div = document.createElement(div);
+		    div.textContent = text;
+
+                    var prepared = '<p class="sender' + sender + '"><a></a><span class="datetime">' + timeformat(datetime) + '</span><span class="delta">' + deltaformat(delta) + '</span><span class="content">' + div.innerHTML + '</span></p>';
 
                     container.append(prepared);
                     if(scope.scroll) {
